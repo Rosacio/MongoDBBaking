@@ -1,0 +1,109 @@
+import pymongo
+from bson import ObjectId, Decimal128
+import datetime
+
+# Connect to MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["Banco_CD"]
+cliente = db["Cliente"]
+cartao = db["Cartao"]
+conta = db["Conta"]
+transaçao = db["Transaçao"]
+
+# Create the document to insert
+doc = {
+    "Nome": "Gervásio",
+    "Morada": "Av. Purpura",
+    "Cidade": "Alfaces da Terra",
+    "CodigoPostal": "1495-321",
+    "nif": 258876432,
+    "vencimento": {
+        "domiciliado": 58000,
+        "valor": Decimal128("0"),
+        "data_comprovativo": datetime.datetime.utcnow()
+    },
+    "contas": [
+    ]
+}
+
+# Insert the document into the collection
+result = cliente.insert_one(doc)
+
+# Print the ID of the inserted document
+print(result.inserted_id)
+
+cliente_id = ObjectId('6435a47a482ed93a6bb898bf')
+
+pipeline = [
+    {
+        '$lookup': {
+            'from': 'Cliente',
+            'localField': 'primeiro_titular.$id',
+            'foreignField': '_id',
+            'as': 'cliente'
+        }
+    },
+    {
+        '$match': {
+            'cliente._id': cliente_id
+        }
+    },
+    {
+        '$group': {
+            '_id': None,
+            'saldo_total': {'$sum': '$saldo'}
+        }
+    }
+
+]
+
+result = db.Conta.aggregate(pipeline)
+
+for value in result:
+    print(value)
+
+conta_id = ObjectId("6435a6a2482ed93a6bb898c4")
+
+pipeline = [
+    {"$match": {"conta.$id": conta_id}}
+]
+
+result = db.Cartao.aggregate(pipeline)
+
+for doc in result:
+    print(doc)
+    
+    
+    conta_id = ObjectId("6435a6a2482ed93a6bb898c4")
+pipeline = [
+    {"$match": {'conta_origem.$id': ObjectId('6435a6a2482ed93a6bb898c4')}}
+]
+
+result = db.Transaçao.aggregate(pipeline)
+
+for doc in result:
+    print(doc)
+    
+    
+   NUMERO_CONTA = 2222333344445555
+
+pipeline = [
+{
+    "$lookup": {
+      "from": "Conta",
+      "localField" : "conta_origem.$id",
+      "foreignField": "_id",
+      "as": "conta_origem"
+    }
+  },
+  {
+    "$match": {
+      "conta_origem.numero_conta": NUMERO_CONTA
+    }
+  }
+]
+
+result = db.Transaçao.aggregate(pipeline)
+
+for doc in result:
+    print(doc['tipo'])
