@@ -1,0 +1,50 @@
+{
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'tipo',
+      'pin'
+    ],
+    properties: {
+      tipo: {
+        'enum': [
+          'crédito',
+          'débito'
+        ]
+      },
+      pin: {
+        bsonType: 'int',
+        minimum: 0,
+        maximum: 9999
+      },
+      limite: {
+        bsonType: 'decimal',
+        maximum: 10000,
+        description: 'A propriedade limete é obrigatória para o tipo = "crédito".'
+      }
+    },
+    anyOf: [
+      {
+        properties: {
+          tipo: {
+            'enum': [
+              'crédito'
+            ]
+          }
+        },
+        required: [
+          'limite'
+        ]
+      },
+      {
+        properties: {
+          tipo: {
+            'enum': [
+              'débito'
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
