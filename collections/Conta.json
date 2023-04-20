@@ -1,0 +1,79 @@
+[{
+  "_id": {
+    "$oid": "6435a6a2482ed93a6bb898c4"
+  },
+  "juros": {
+    "$numberDecimal": "0.025"
+  },
+  "primeiro_titular": {
+    "$ref": "customer",
+    "$id": {
+      "$oid": "6435a47a482ed93a6bb898bf"
+    }
+  },
+  "saldo": {
+    "$numberDecimal": "12000.00"
+  },
+  "tipo_conta": "poupança",
+  "restantes_titulares": [
+    {
+      "$ref": "customer",
+      "$id": {
+        "$oid": "6435a47a482ed93a6bb898bf"
+      },
+      "permissoes": [
+        "consulta_saldo",
+        "transferência"
+      ]
+    },
+    {
+      "$ref": "customer",
+      "$id": {
+        "$oid": "6437d1e4cff3faae850031c6"
+      },
+      "permissões": [
+        "consulta_saldo"
+      ]
+    }
+  ],
+  "numero_conta": {
+    "$numberLong": "2222333344445555"
+  }
+},{
+  "_id": {
+    "$oid": "6437ee4dcff3faae850031f4"
+  },
+  "primeiro_titular": {
+    "$ref": "customer",
+    "$id": {
+      "$oid": "6435a47a482ed93a6bb898bf"
+    }
+  },
+  "saldo": {
+    "$numberDecimal": "3000.00"
+  },
+  "tipo_conta": "prazo",
+  "numero_conta": {
+    "$numberLong": "2222333344446666"
+  },
+  "juros": {
+    "$numberDecimal": "0.05"
+  }
+},{
+  "_id": {
+    "$oid": "6437f113cff3faae850031f6"
+  },
+  "primeiro_titular": {
+    "$ref": "customer",
+    "$id": {
+      "$oid": "6435a47a482ed93a6bb898bf"
+    }
+  },
+  "saldo": {
+    "$numberDecimal": "1000.00"
+  },
+  "tipo_conta": "ordem",
+  "numero_conta": {
+    "$numberLong": "2222333344447777"
+  }
+}]

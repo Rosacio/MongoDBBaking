@@ -1,0 +1,132 @@
+[{
+  "_id": {
+    "$oid": "6436d0e5f980d12d7a2baa3f"
+  },
+  "tipo": "Transferência SEPA nacional",
+  "montante": {
+    "$numberDecimal": "1232"
+  },
+  "conta_origem": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6436d147f980d12d7a2baa41"
+    }
+  },
+  "conta_destino": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6436d132f980d12d7a2baa40"
+    }
+  },
+  "data_operacao": {
+    "$date": {
+      "$numberLong": "1628636400000"
+    }
+  },
+  "custo_operacao": {
+    "$numberDecimal": "0"
+  }
+},{
+  "_id": {
+    "$oid": "6441435f28c1f7b17b8aa089"
+  },
+  "tipo": "Transferência SEPA nacional",
+  "montante": {
+    "$numberDecimal": "500"
+  },
+  "conta_origem": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a6a2482ed93a6bb898c4"
+    }
+  },
+  "conta_destino": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a69a482ed93a6bb898c3"
+    }
+  },
+  "data_operacao": {
+    "$date": {
+      "$numberLong": "1647549600000"
+    }
+  },
+  "custo_operacao": {
+    "$numberDecimal": "0"
+  }
+},{
+  "_id": {
+    "$oid": "6441438e28c1f7b17b8aa08a"
+  },
+  "tipo": "Transferência SEPA nacional",
+  "montante": {
+    "$numberDecimal": "250"
+  },
+  "conta_origem": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a47a482ed93a6bb898bf"
+    }
+  },
+  "conta_destino": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a57f482ed93a6bb898c0"
+    }
+  },
+  "data_operacao": {
+    "$date": {
+      "$numberLong": "1646325600000"
+    }
+  },
+  "custo_operacao": {
+    "$numberDecimal": "0"
+  }
+},{
+  "_id": {
+    "$oid": "644143b728c1f7b17b8aa08f"
+  },
+  "tipo": "pagamentos ao estado",
+  "montante": {
+    "$numberDecimal": "200"
+  },
+  "conta_origem": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a6a2482ed93a6bb898c4"
+    }
+  },
+  "referencia": "987654321",
+  "data_operacao": {
+    "$date": {
+      "$numberLong": "1628636400000"
+    }
+  },
+  "custo_operacao": {
+    "$numberDecimal": "0"
+  }
+},{
+  "_id": {
+    "$oid": "644143d928c1f7b17b8aa090"
+  },
+  "tipo": "pagamentos de serviços",
+  "montante": {
+    "$numberDecimal": "50"
+  },
+  "conta_origem": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a6a2482ed93a6bb898c4"
+    }
+  },
+  "entidade": "EDP",
+  "referencia": "123456789",
+  "data_operacao": {
+    "$date": {
+      "$numberLong": "1628636400000"
+    }
+  },
+  "custo_operacao": {
+    "$numberDecimal": "0"
+  }
+}]

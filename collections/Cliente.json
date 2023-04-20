@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "6435a47a482ed93a6bb898bf"
+  },
+  "Nome": "Joao",
+  "Morada": "Av. Azul",
+  "Cidade": "Lisboa",
+  "CodigoPostal": "1495-222",
+  "nif": 259976436,
+  "contas": [
+    {
+      "$ref": "Conta",
+      "$id": {
+        "$oid": "6435a6a2482ed93a6bb898c4"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6437d1e4cff3faae850031c6"
+  },
+  "Nome": "Fred",
+  "Morada": "Av. Verde",
+  "Cidade": "Lisboa",
+  "CodigoPostal": "1495-222",
+  "nif": 259976432,
+  "vencimento": {
+    "domiciliado": null,
+    "valor": {
+      "$numberDecimal": "0"
+    },
+    "data_comprovativo": {
+      "$date": {
+        "$numberLong": "1681389025858"
+      }
+    }
+  },
+  "contas": [
+    {
+      "$ref": "Conta",
+      "$id": {
+        "$oid": "6435a6a2482ed93a6bb898c4"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "64414b56e2470fa08f06fd84"
+  },
+  "Nome": "Gervásio",
+  "Morada": "Av. Purpura",
+  "Cidade": "Alfaces da Terra",
+  "CodigoPostal": "1495-321",
+  "nif": 258876432,
+  "vencimento": {
+    "domiciliado": 58000,
+    "valor": {
+      "$numberDecimal": "0"
+    },
+    "data_comprovativo": {
+      "$date": {
+        "$numberLong": "1682000726540"
+      }
+    }
+  },
+  "contas": []
+}]

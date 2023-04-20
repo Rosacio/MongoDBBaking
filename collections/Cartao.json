@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "6436933bb437dc80dc2ff99d"
+  },
+  "conta": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a6a2482ed93a6bb898c4"
+    }
+  },
+  "numero": {
+    "$numberLong": "4321323143212300"
+  },
+  "pin": 1234,
+  "tipo": "débito",
+  "validade": {
+    "$date": {
+      "$numberLong": "1765497600000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6437dbb0cff3faae850031dc"
+  },
+  "conta": {
+    "$ref": "Conta",
+    "$id": {
+      "$oid": "6435a6a2482ed93a6bb898c4"
+    }
+  },
+  "numero": {
+    "$numberLong": "4321323143212305"
+  },
+  "pin": 1234,
+  "limite": {
+    "$numberDecimal": "500"
+  },
+  "tipo": "crédito",
+  "validade": {
+    "$date": {
+      "$numberLong": "1765497600000"
+    }
+  }
+}]
