@@ -1,0 +1,91 @@
+{
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'tipo',
+      'montante',
+      'conta_origem',
+      'data_operacao',
+      'custo_operacao'
+    ],
+    properties: {
+      tipo: {
+        'enum': [
+          'Transferência SEPA nacional',
+          'transferências',
+          'pagamentos de serviços',
+          'pagamentos ao estado',
+          'débitos diretos'
+        ]
+      },
+      montante: {
+        bsonType: 'decimal',
+        minimum: 0
+      },
+      custo_operacao: {
+        bsonType: 'decimal',
+        minimum: 0
+      },
+      entidade: {
+        bsonType: 'string'
+      },
+      referencia: {
+        bsonType: 'string'
+      }
+    },
+    oneOf: [
+      {
+        properties: {
+          tipo: {
+            'enum': [
+              'pagamentos de serviços'
+            ]
+          }
+        },
+        required: [
+          'entidade',
+          'referencia'
+        ]
+      },
+      {
+        properties: {
+          tipo: {
+            'enum': [
+              'Transferência SEPA nacional',
+              'transferências'
+            ]
+          }
+        },
+        required: [
+          'conta_destino'
+        ]
+      },
+      {
+        properties: {
+          tipo: {
+            'enum': [
+              'pagamentos ao estado'
+            ]
+          }
+        },
+        required: [
+          'referencia'
+        ]
+      },
+      {
+        properties: {
+          tipo: {
+            'enum': [
+              'débitos diretos'
+            ]
+          }
+        },
+        required: [
+          'data',
+          'periodicidade',
+          'conta_destino'
+        ]
+      }
+    ]
+  }
+}
