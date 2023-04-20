@@ -1,0 +1,70 @@
+{
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'Nome',
+      'Morada',
+      'Cidade',
+      'CodigoPostal',
+      'nif',
+      'contas'
+    ],
+    properties: {
+      Nome: {
+        bsonType: 'string'
+      },
+      Morada: {
+        bsonType: 'string'
+      },
+      Cidade: {
+        bsonType: 'string'
+      },
+      CodigoPostal: {
+        bsonType: 'string'
+      },
+      nif: {
+        bsonType: 'int'
+      },
+      vencimento: {
+        bsonType: [
+          'object',
+          'null'
+        ],
+        properties: {
+          domiciliado: {
+            bsonType: [
+              'bool',
+              'null'
+            ]
+          },
+          valor: {
+            bsonType: [
+              'decimal',
+              'null'
+            ]
+          },
+          data_comprovativo: {
+            bsonType: [
+              'date',
+              'null'
+            ]
+          }
+        }
+      },
+      contas: {
+        bsonType: 'array',
+        items: {
+          bsonType: 'object',
+          properties: {
+            $ref: {
+              bsonType: 'string'
+            },
+            $id: {
+              bsonType: 'objectId'
+            }
+          }
+        }
+      }
+    }
+  }
+}
