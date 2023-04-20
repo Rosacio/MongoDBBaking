@@ -1,0 +1,65 @@
+{
+  $jsonSchema: {
+    bsonType: 'object',
+    required: [
+      'saldo',
+      'numero_conta',
+      'tipo_conta',
+      'primeiro_titular'
+    ],
+    properties: {
+      tipo_conta: {
+        'enum': [
+          'poupança',
+          'ordem',
+          'prazo'
+        ]
+      },
+      juros: {
+        bsonType: 'decimal'
+      },
+      saldo: {
+        bsonType: 'decimal',
+        minimum: 0
+      }
+    },
+    anyOf: [
+      {
+        properties: {
+          tipo_conta: {
+            'enum': [
+              'poupança',
+              'prazo'
+            ]
+          }
+        },
+        required: [
+          'juros'
+        ]
+      },
+      {
+        allOf: [
+          {
+            required: [
+              'tipo_conta'
+            ],
+            properties: {
+              tipo_conta: {
+                'enum': [
+                  'ordem'
+                ]
+              }
+            }
+          },
+          {
+            properties: {
+              juros: {
+                bsonType: 'null'
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
